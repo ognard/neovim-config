@@ -1,13 +1,30 @@
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.cmd("set tabstop=4")
+vim.cmd("set softtabstop=4")
+vim.cmd("set shiftwidth=4")
 vim.g.mapleader = " "
 
 vim.opt.swapfile = false
 
--- Navigate vim panes better
-vim.keymap.set("n", "<C-d>", "yyP", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-k>", "dd", { noremap = true, silent = true })
+local opts = { noremap = true, silent = true }
+
+-- Duplicate and Cut line
+vim.keymap.set("n", "<C-d>", "yyP", opts)
+vim.keymap.set("i", "<C-d>", "<Esc>yyPgi", opts)
+vim.keymap.set("n", "<C-k>", "dd", opts)
+vim.keymap.set("i", "<C-k>", "<Esc>ddi", opts)
+
+-- Backspace delete selection
+vim.keymap.set("v", "<Bs>", "<Del>", opts)
+
+-- Tabs
+vim.keymap.set("n", "<Tab>", ">>", opts)
+vim.keymap.set("n", "<S-Tab>", "<<",  opts)
+vim.keymap.set("v", "<Tab>", ">gv", opts)
+vim.keymap.set("v", "<S-Tab>", "<gv", opts)
+
+-- Copy / Paste
+vim.keymap.set("v", "<C-c>", '"*y', opts)
+vim.keymap.set("i", "<C-v>", '<C-r>+', opts)
 
 vim.wo.number = true
