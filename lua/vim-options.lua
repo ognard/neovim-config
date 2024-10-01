@@ -26,5 +26,11 @@ vim.keymap.set("v", "<S-Tab>", "<gv", opts)
 -- Copy / Paste
 vim.keymap.set("v", "<C-c>", '"*y', opts)
 vim.keymap.set("i", "<C-v>", '<C-r>+', opts)
+vim.keymap.set("v", "<C-v>", '\"*gP', opts)
+
+-- Undo
+vim.keymap.set("n", "<C-z>", "u", opts)
+vim.keymap.set("v", "<C-z>", "u", opts)
+vim.keymap.set("i", "<C-z>", "<C-o>u", opts)
 
 vim.wo.number = true

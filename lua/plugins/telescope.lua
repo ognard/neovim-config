@@ -19,6 +19,6 @@ return {
       vim.keymap.set("n", "<C-g>", builtin.live_grep, {})
 
       require("telescope").load_extension("ui-select")
-    end,
+    end
   },
 }

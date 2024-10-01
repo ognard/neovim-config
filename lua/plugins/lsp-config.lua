@@ -13,28 +13,35 @@ return {
                     "lua_ls", "html", "bashls",
                     "tailwindcss", "cssls", "ast_grep",
                     "css_variables", "cssmodules_ls", "unocss",
-                    "jinja_lsp", "dockerls", "docker_compose_language_service",
-                    "html", "rome", "spectral",
-                    "biome", "jsonls", "nginx_language_server", 
+                    "dockerls", "docker_compose_language_service",
+                    "rome", "spectral", "biome",
+                    "jsonls", "nginx_language_server",
                 }
             })
         end
     },
     {
         "neovim/nvim-lspconfig",
-        local lspconfig = require("lspconfig")
-        lspconfig.html.setup({})
-        lspconfig.bashls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})lspconfig
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
-        lspconfig.lua_ls.setup({})
+        config = function()
+            local lspconfig = require("lspconfig")
+            lspconfig.lua_ls.setup({})
+            lspconfig.html.setup({})
+            lspconfig.bashls.setup({})
+            lspconfig.tailwindcss.setup({})
+            lspconfig.cssls.setup({})
+            lspconfig.ast_grep.setup({})
+            lspconfig.css_variables.setup({})
+            lspconfig.cssmodules_ls.setup({})
+            lspconfig.unocss.setup({})
+            lspconfig.dockerls.setup({})
+            lspconfig.docker_compose_language_service.setup({})
+            lspconfig.rome.setup({})
+            lspconfig.spectral.setup({})
+            lspconfig.biome.setup({})
+            lspconfig.jsonls.setup({})
+            lspconfig.nginx_language_server.setup({})
+            vim.keymap.set('n', '?', vim.lsp.buf.hover, {})
+            vim.keymap.set('n', '<C-`>', vim.lsp.buf.code_action, {})
+        end
     }
 }
